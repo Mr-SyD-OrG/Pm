@@ -104,7 +104,7 @@ class Database:
         await self.col.update_one({'_id': int(id)}, {'$set': {'metadata': bool_meta}})
 
     async def get_forch(self, id):
-        user = await self.col.find_one({'_id': int(id)})
+        user = await self.col.find_one({'tochnl': int(tochnl)})
         return user.get('tochnl', None)
         
     async def get_metadata(self, id):
