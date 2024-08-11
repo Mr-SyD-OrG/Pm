@@ -97,12 +97,16 @@ class Database:
         await self.col.update_one({'_id': int(id)}, {'$set': {'suffix': suffix}})
 
     async def get_suffix(self, id):
-        user = await self.col.find_one({'_id': int(id)})
+        user = await self.col.find_one({'tochnl': int(id)})
         return user.get('suffix', None)
 
     async def set_metadata(self, id, bool_meta):
         await self.col.update_one({'_id': int(id)}, {'$set': {'metadata': bool_meta}})
 
+    async def get_forch(self, id):
+        user = await self.col.find_one({'_id': int(id)})
+        return user.get('tochnl', None)
+        
     async def get_metadata(self, id):
         user = await self.col.find_one({'_id': int(id)})
         return user.get('metadata', None)
